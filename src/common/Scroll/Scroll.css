@@ -1,0 +1,40 @@
+.Scroll .scroll-up {
+    cursor: pointer;
+    display: block;
+    border-radius: 50px;
+    /* box-shadow: 0 0 0 2px #414141 inset; */
+    z-index: 99;
+    opacity: 0;
+    visibility: hidden;
+    transform: translateY(30px) scale(0.9);
+    position: fixed;
+    right: 25px;
+    bottom: 35px;
+    height: 50px;
+    width: 50px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: 0.5s;
+    background: conic-gradient(var(--main-color) calc(var(--progress) * 1%), #414141 0 );
+}
+.Scroll .scroll-up.active{
+    opacity: 1;
+    visibility: visible;
+    transform: translateY(0) scale(1);
+}
+
+.Scroll .scroll-up:hover{
+    transform: translateY(-10px) scale(1.05);
+
+    
+}
+
+.Scroll .scroll-up::after {
+  content: "";
+  position: absolute;
+  inset: 3px;
+  /* background: #000; */
+  border-radius: 50%;
+  z-index: -1;
+}

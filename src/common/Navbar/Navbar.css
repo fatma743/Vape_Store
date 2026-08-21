@@ -1,0 +1,87 @@
+
+
+.navbar-blur {
+  animation: blurSlide 1s ease-out;
+  backdrop-filter: blur(10px);
+}
+@keyframes blurSlide {
+  from {
+    opacity: 0;
+    transform: translateY(-30px);
+    filter: blur(6px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+    filter: blur(0);
+  }
+}
+
+.navbar .dropDown{
+  transform: scaleY(0);
+  transform-origin: top;
+  transition: 0.5s;
+}
+.navbar .dropDown.active{
+  transform: scaleY(1);
+
+}
+.navbar ul li a{
+  transition: 0.5s;
+}
+.navbar ul li a.active{
+  color: var(--main-color);
+}
+
+.navbar .auth-btns a{
+  transition: 0.5s;
+}
+.navbar .auth-btns a.active{
+  background-color: var(--main-color);
+}
+
+/*  */
+.animate-scaleIn {
+  animation: scaleIn 0.5s ease-out forwards;
+}
+@keyframes scaleIn {
+  0% {
+    opacity: 0;
+    transform: scale(0.85) translateY(20px);
+  }
+  100% {
+    opacity: 1;
+    transform: scale(1) translateY(0);
+  }
+}
+
+/*  */
+input::placeholder{
+  color: #857f7f;
+}
+/* overlay */
+.animate-fadeIn{
+  animation: fadeIn 0.5s ease-out;
+}
+@keyframes fadeIn {
+  0%{
+    opacity: 0;
+  }
+
+  100%{
+    opacity: 1;
+  }
+  
+}
+
+ .dropdown-mobile{
+  height: 0;
+  transform: scaleY(0);
+  transform-origin: top;
+  transition: 0.5s;
+}
+
+.dropdown-mobile.active{
+  height: 160px;
+  transform: scaleY(1);
+}

@@ -1,0 +1,26 @@
+.Service {
+    background-image: url(../../assets/images/about-bg.jpg);
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center center;
+}
+
+.Service .service-icon::after{
+    position: absolute;
+    content: "";
+    transition-duration: 700ms;
+    transition-timing-function: cubic-bezier(0.52, 1.64, 0.37, 0.66);
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    border-radius: 50%;
+    z-index: 1;
+    transform: scale(0);
+}
+
+.Service .service-items:hover .service-icon::after{
+    background-color: var(--main-color);
+    transform: scale(1);
+}
+

@@ -1,0 +1,62 @@
+
+.DataTitle .title-icon{
+    display: inline-block;
+    /* margin: 0 10px; */
+}
+.DataTitle .title-icon::before {
+    content: "";
+    position: absolute;
+    width: 14px;
+    height: 14px;
+    line-height: 14px;
+    text-align: center;
+    border-radius: 50%;
+    transition: all 0.5s ease-in-out;
+    border: 2px solid var(--main-color);
+    background-color: var(--main-color);
+    top: 0;
+    left: 0;
+    animation: moveLeft 3s linear infinite;
+}
+
+@keyframes moveLeft {
+    0%{
+        transform: translateX(0);
+        
+    }
+       50%{
+        transform: translateX(9px);
+        
+    }
+       100%{
+        transform: translateX(0);
+        
+    }
+}
+
+.DataTitle .title-icon::after{
+    content: "";
+    position: absolute;
+    width: 14px;
+    height: 14px;
+    line-height: 14px;
+    text-align: center;
+    border-radius: 50%;
+    transition:all 0.5s ease-in-out;
+    border: 2px solid var(--main-color);
+    top: 0;
+    right: 0;
+    animation: moveRight 3s linear infinite;
+}
+@keyframes moveRight {
+    0%{
+        transform: translateX(0);
+    }
+       50%{
+        transform: translateX(-9px);
+    }
+       100%{
+        transform: translateX(0);
+        opacity: 1;
+    }
+}

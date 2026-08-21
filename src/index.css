@@ -1,0 +1,17 @@
+@import url('@fontsource/prosto-one');
+@import url('@fontsource/montserrat');
+@import "tailwindcss";
+
+
+
+
+:root{
+  --main-color:#fa4f09;
+  --secondary-color:#191919;
+  
+}
+body{
+   font-family: "Montserrat", sans-serif;
+   background-color: black;
+   color: white;
+}

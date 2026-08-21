@@ -1,0 +1,15 @@
+.Marquee .marquee-inner{
+    animation: marqueeLeft 30s linear infinite;
+}
+
+@keyframes marqueeLeft {
+    0%{
+        transform: translateX(0);
+    }
+
+    100% {
+            transform: translateX(-50%);
+
+}
+    
+}

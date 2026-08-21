@@ -1,0 +1,52 @@
+.ProductsCard{
+    transition: 0.5s;
+}
+.ProductsCard:hover{
+    transform: translateY(-13px);
+}
+.ProductsCard .wishlist{
+    transition: 0.5s;
+}
+
+.ProductsCard:hover .wishlist{
+    opacity: 1;
+}
+.ProductsCard .tilte{
+    transition: 0.5s;
+}
+.ProductsCard:hover .tilte{
+    color: var(--main-color);
+}
+.ProductsCard .cart::before{
+    position: absolute;
+    content: "";
+    background-color: var(--main-color);
+    width: 0%;
+    height: 100%;
+    left: 0;
+    top: 0;
+    transition: 0.6s;
+}
+.ProductsCard .cart:hover::before{
+    width: 50%;
+}
+.ProductsCard .cart::after{
+    position: absolute;
+    content: "";
+    background-color: var(--main-color);
+    width: 0%;
+    height: 100%;
+    right: 0;
+    top: 0;
+    transition: 0.6s;
+}
+.ProductsCard .cart:hover::after{
+    width: 50%;
+}
+.ProductsCard .cart .ca{
+    transition: 0.5s;
+}
+
+.ProductsCard .cart:hover .ca{
+    color: white;
+}

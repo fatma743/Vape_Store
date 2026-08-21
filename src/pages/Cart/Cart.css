@@ -1,0 +1,14 @@
+
+.Cart .cart button{
+    transition:0.5s ;
+}
+
+@media (max-width : 768px) {
+    .Cart .grid{
+        overflow: auto;
+    }
+    .Cart .cart{
+        width: 800px;
+        margin: auto;
+    }
+}

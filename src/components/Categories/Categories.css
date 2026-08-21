@@ -1,0 +1,33 @@
+
+
+/*  */
+
+
+/* الصورة */
+.category-image .category-bg{
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50% , -50%);
+  opacity: 0;
+  transition: 0.4s ease;
+  z-index: 1;
+}
+
+/* العنوان */
+.category-title {
+  transition: 0.3s;
+}
+
+/* hover */
+.category-image:hover .category-bg {
+  opacity: 1;
+}
+.category-image:hover .category-icon{
+    background-color: #fa4d09b0;
+}
+
+
+.category-image:hover + .category-title {
+  color: var(--main-color);
+}

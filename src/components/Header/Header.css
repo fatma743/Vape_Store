@@ -1,0 +1,42 @@
+.header .swiper .content .btn{
+    transition: 0.5s;
+}
+.header .swiper .content .btn .btn-1 , .btn-2{
+    position: relative;
+    overflow: hidden;
+    z-index: 0;
+} 
+.header .swiper .content .btn .btn-1::before , .btn-2::before{
+    content: "";
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  width: 100%;
+  height: 100%;
+  z-index: -1;
+  transform: translateY(100%);
+  transition: transform 0.5s ease;
+  border-radius: inherit;
+
+}
+
+
+.header .swiper .content .btn .btn-1::before{
+  background-color: #fff;
+}
+
+.header .swiper .content .btn .btn-2::before{
+  background-color: var(--main-color);
+}
+
+.header .swiper .content .btn .btn-1:hover:before , .btn-2:hover:before {
+  transform: translateY(0);
+}
+
+.header .swiper .content .btn .btn-1:hover {
+  color: var(--main-color); /* نص أبيض على hover */
+}
+
+.header .swiper .content .btn .btn-2:hover {
+  color: #fff; /* نص أبيض على hover */
+}

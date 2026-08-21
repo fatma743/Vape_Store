@@ -1,0 +1,14 @@
+:root{
+  --main-color:#fa4f09;
+  --secondary-color:#191919;
+  
+}
+
+.Footer {
+    background-image: url(../../assets/images/footer-bg.jpg);
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center center;
+    overflow: hidden;
+}
+
