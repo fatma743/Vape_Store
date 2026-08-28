@@ -37,7 +37,7 @@ export default function App() {
 
   const router = createBrowserRouter([
     {
-      path : '',
+      path : '/',
       element :<Suspense fallback={<LottieHandler status='page'/>}> <Layout/> </Suspense>,
       children:[
         { index : true , element : 
@@ -115,7 +115,9 @@ export default function App() {
       ] ,
       errorElement :<LottieHandler status='error'/>
     }
-  ])
+  ]  , {
+    basename: '/Vape_Store'
+  })
   return <div>
     <RouterProvider router={router} />
     <Toaster />
