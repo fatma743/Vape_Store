@@ -20,7 +20,7 @@
     overflow: hidden;
     z-index: 0;
 } 
-.View .btn-2::before.btn-2::before{
+.View .btn-2::before{
     content: "";
   position: absolute;
   left: 0;
