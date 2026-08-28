@@ -1,126 +1,162 @@
-import {Suspense , lazy, useEffect} from 'react'
-import { createBrowserRouter , RouterProvider} from 'react-router-dom'
+
+import { Suspense, lazy, useEffect } from 'react'
+import { HashRouter, Routes, Route } from 'react-router-dom'
 import LottieHandler from './common/daynamic/LottieHandler'
-import {Toaster} from 'react-hot-toast'
+import { Toaster } from 'react-hot-toast'
 import { useAuth } from './zustand/authSlice'
 
- 
-
 // lazy
-const Layout = lazy(()=>import( './Layout/Layout') )
-const Home = lazy(()=>import( './pages/Home/Home') )
-const About = lazy(()=>import( './pages/About/About') )
-const Blog = lazy(()=>import(  './pages/Blog/Blog') )
-const Contact = lazy(()=>import(  './pages/Contact/Contact') )
-const Register = lazy(()=>import( './pages/Auth/Register') )
-const Login = lazy(()=>import( './pages/Auth/Login') )
-const Products = lazy(()=>import( './components/Products/Products') )
-const Profile = lazy(()=>import( './pages/Profile/Profile') )
-const WishList = lazy(()=>import( './pages/WishList/WishList') )
-const Cart = lazy(()=>import( './pages/Cart/Cart') )
-const ProductDetails = lazy(()=>import( './pages/ProductDetails/ProductDetails') )
-const Orders = lazy(()=>import( './pages/Ordres/Ordres') )
-
-
-
+const Layout = lazy(() => import('./Layout/Layout'))
+const Home = lazy(() => import('./pages/Home/Home'))
+const About = lazy(() => import('./pages/About/About'))
+const Blog = lazy(() => import('./pages/Blog/Blog'))
+const Contact = lazy(() => import('./pages/Contact/Contact'))
+const Register = lazy(() => import('./pages/Auth/Register'))
+const Login = lazy(() => import('./pages/Auth/Login'))
+const Products = lazy(() => import('./components/Products/Products'))
+const Profile = lazy(() => import('./pages/Profile/Profile'))
+const WishList = lazy(() => import('./pages/WishList/WishList'))
+const Cart = lazy(() => import('./pages/Cart/Cart'))
+const ProductDetails = lazy(() => import('./pages/ProductDetails/ProductDetails'))
+const Orders = lazy(() => import('./pages/Ordres/Ordres'))
 
 export default function App() {
 
   const initiatAuthOnApp = useAuth(state => state.initiatAuthOnApp)
 
-
-  useEffect(()=>{
+  useEffect(() => {
     const recordAuth = initiatAuthOnApp()
-    return ()=> recordAuth()
+    return () => recordAuth()
+  }, [])
 
-  } , [])
+  return (
+    <HashRouter>
+      <Suspense fallback={<LottieHandler status="page" />}>
+        <Routes>
 
-  const router = createBrowserRouter([
-    {
-      path : '/',
-      element :<Suspense fallback={<LottieHandler status='page'/>}> <Layout/> </Suspense>,
-      children:[
-        { index : true , element : 
-          <Suspense fallback={<LottieHandler status='build' />}>
-            < Home />
-          </Suspense>
-        },
+          <Route path="/" element={<Layout />}>
 
-        { path : 'about' , element :
-          <Suspense fallback={<LottieHandler status='build' />}>
-            <About/>
-          </Suspense>
-        },
+            <Route
+              index
+              element={
+                <Suspense fallback={<LottieHandler status="build" />}>
+                  <Home />
+                </Suspense>
+              }
+            />
 
-         { path : 'pages/product' , element :
-          <Suspense fallback={<LottieHandler status='build' />}>
-            <Products isShopPage={true}/>
-          </Suspense>
-        },
+            <Route
+              path="about"
+              element={
+                <Suspense fallback={<LottieHandler status="build" />}>
+                  <About />
+                </Suspense>
+              }
+            />
 
-        { path : 'blog' , element : 
-          <Suspense fallback={<LottieHandler status='build' />}>
-            <Blog/>
-          </Suspense>
-        },
+            <Route
+              path="pages/product"
+              element={
+                <Suspense fallback={<LottieHandler status="build" />}>
+                  <Products isShopPage={true} />
+                </Suspense>
+              }
+            />
 
-        { path : 'contact' , element: 
-          <Suspense fallback={<LottieHandler status='build' />}>
-            <Contact/>
-          </Suspense>
-        },
+            <Route
+              path="blog"
+              element={
+                <Suspense fallback={<LottieHandler status="build" />}>
+                  <Blog />
+                </Suspense>
+              }
+            />
 
-          { path : 'register' , element: 
-          <Suspense fallback={<LottieHandler status='build' />}>
-            <Register/>
-          </Suspense>
-        },
+            <Route
+              path="contact"
+              element={
+                <Suspense fallback={<LottieHandler status="build" />}>
+                  <Contact />
+                </Suspense>
+              }
+            />
 
-          { path : 'login' , element: 
-          <Suspense fallback={<LottieHandler status='build' />}>
-            <Login/>
-          </Suspense>
-        } ,
-         { path : 'profile' , element: 
-          <Suspense fallback={<LottieHandler status='build' />}>
-            <Profile />
-          </Suspense>
-        } ,
-          { path : 'wishlist' , element: 
-          <Suspense fallback={<LottieHandler status='build' />}>
-            <WishList />
-          </Suspense>
-        },
+            <Route
+              path="register"
+              element={
+                <Suspense fallback={<LottieHandler status="build" />}>
+                  <Register />
+                </Suspense>
+              }
+            />
 
-             { path : 'cart' , element: 
-          <Suspense fallback={<LottieHandler status='build' />}>
-            <Cart />
-          </Suspense>
-        } ,
+            <Route
+              path="login"
+              element={
+                <Suspense fallback={<LottieHandler status="build" />}>
+                  <Login />
+                </Suspense>
+              }
+            />
 
-            
-             { path : 'productDetails/:id' , element: 
-          <Suspense fallback={<LottieHandler status='build' />}>
-            <ProductDetails />
-          </Suspense>
-        } ,
+            <Route
+              path="profile"
+              element={
+                <Suspense fallback={<LottieHandler status="build" />}>
+                  <Profile />
+                </Suspense>
+              }
+            />
 
-            { path : 'orders' , element: 
-          <Suspense fallback={<LottieHandler status='build' />}>
-            <Orders />
-          </Suspense>
-        } 
+            <Route
+              path="wishlist"
+              element={
+                <Suspense fallback={<LottieHandler status="build" />}>
+                  <WishList />
+                </Suspense>
+              }
+            />
 
+            <Route
+              path="cart"
+              element={
+                <Suspense fallback={<LottieHandler status="build" />}>
+                  <Cart />
+                </Suspense>
+              }
+            />
 
-      ] ,
-      errorElement :<LottieHandler status='error'/>
-    },
-  ],
-  {
-    basename: '/Vape_Store/',
-  })
-  return <div>
-    <RouterProvider router={router} />
-    <Toaster />
-  </div>
+            <Route
+              path="productDetails/:id"
+              element={
+                <Suspense fallback={<LottieHandler status="build" />}>
+                  <ProductDetails />
+                </Suspense>
+              }
+            />
+
+            <Route
+              path="orders"
+              element={
+                <Suspense fallback={<LottieHandler status="build" />}>
+                  <Orders />
+                </Suspense>
+              }
+            />
+
+          </Route>
+
+          {/* أي Route غير موجود */}
+          <Route
+            path="*"
+            element={<LottieHandler status="error" />}
+          />
+
+        </Routes>
+      </Suspense>
+
+      <Toaster />
+    </HashRouter>
+  )
 }
+
