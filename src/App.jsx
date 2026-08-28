@@ -115,9 +115,7 @@ export default function App() {
       ] ,
       errorElement :<LottieHandler status='error'/>
     }
-  ]  , {
-    basename: '/Vape_Store'
-  })
+  ])
   return <div>
     <RouterProvider router={router} />
     <Toaster />
