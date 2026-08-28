@@ -2,7 +2,7 @@ import {create} from 'zustand'
 import axios from 'axios'
 
 
-const apiProducts = 'http://localhost:5001/products'
+const apiProducts = 'https://vapebackend-production-182f.up.railway.app/products'
 
 export const useDisplayProducts = create( (set)=>({
     // globle state
@@ -36,7 +36,7 @@ export const useDisplayProducts = create( (set)=>({
         try{
             const {data} = await axios.get(`${apiProducts}/categories`)
             set({categories : data})
-        }catch{
+        }catch(error){
             console.log(error.message);
             
         }

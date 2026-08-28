@@ -6,7 +6,7 @@ import axios from "axios";
 import {persist} from 'zustand/middleware'
 
 
-const ordersApi =  'http://localhost:5001/order'
+const ordersApi =  'https://vapebackend-production-182f.up.railway.app/order'
 
 export const useOrders = create(
     persist(

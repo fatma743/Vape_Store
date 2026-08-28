@@ -4,7 +4,7 @@ import axios from 'axios'
 
 
 
-const wishlistApi = 'http://localhost:5001/wishlist'
+const wishlistApi = 'https://vapebackend-production-182f.up.railway.app/wishlist'
 
 //api ديه هيكون فيها اللوجك الخاص ب 
 
